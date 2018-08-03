@@ -16,7 +16,7 @@ app.get('/', function(req, res){
 
 app.get('/chat', function(req, res){
   console.log('get /chat');
-  res.sendFile(__dirname + '/chat/chatTheme/chat.html');
+  res.sendFile(__dirname + '/chat/chat.html');
 });
 
 server.listen(serverPort, function(){
