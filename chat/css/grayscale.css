@@ -12,6 +12,18 @@
   min-height: 100%;
 }
 
+#selfView {
+  top: 0;
+  left: 0;
+}
+
+#remoteViewContainer {
+  top: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
 #mainNav {
   min-height: 56px;
   background-color: #fff;

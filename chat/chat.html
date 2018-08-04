@@ -8,13 +8,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>Chat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+   
+    <script src="/socket.io/socket.io.js"></script>
+  
+    <link rel="stylesheet" type="text/css" href="/style/main.css">
+    <link href="/chat/stream/css/styles.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="/chat/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="/chat//vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="/chat/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -26,36 +35,34 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Eakrum Awwal</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-
-          </ul>
-        </div>
+      <div class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class= 'navbar-brand'>
+                <video id="selfView" class="selfViewScaled" autoplay></video>
+              </div>
       </div>
-    </nav>
 
     <!-- Header -->
     
-    <div class="masthead">
+    <div id="remoteViewContainer" class="masthead">
         <video autoplay muted loop id="myVideo">
-            <source src="/chat//master-video.mp4" type="video/mp4">
+            <source src="/chat/master-video.mp4" type="video/mp4">
           </video>
       <div class="container d-flex h-100 align-items-center">
         <div class = "centered">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Be Anywhere.</h1>
           <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, high quality web chat to chat friends anywhere.</h2>
-          <a href="#about" class="btn btn-primary js-scroll-trigger">Start a call</a>
+          <div id="roomIDContainer" class="input-group input-group-lg">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Enter a room</span>
+              </div>
+              <input id="roomID" value="abc" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+               <button onclick="press();" class="btn btn-primary">Start a call</button>
+            </div>
         </div>
       </div>
       </div>
+      
     </div>
     <!-- Bootstrap core JavaScript -->
     <script src="/chat//vendor/jquery/jquery.min.js"></script>
@@ -66,7 +73,21 @@
 
     <!-- Custom scripts for this template -->
     <script src="/chat/js/grayscale.min.js"></script>
-
+    <script src="/chat/js/callHandler.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    
+      ga('create', 'UA-68314333-1', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    
   </body>
 
 </html>
