@@ -5,7 +5,7 @@ var options = {
   key: fs.readFileSync("./fake-keys/privatekey.pem"),
   cert: fs.readFileSync("./fake-keys/certificate.pem")
 };
-var serverPort = process.env.PORT || 3000;
+var serverPort = process.env.PORT || 80;
 var https = require("https");
 var http = require("http");
 var server;
